@@ -85,6 +85,18 @@ const fetchData = (endpoint, updateAction, SetErrorMessage) =>
         } else return ""
     }
 
+    const getUserName = () =>
+    {
+        const token = getToken()
+        if (token != null)
+        {
+            const payloadBase64 = getToken().split('.')[1]
+            const decodedClaims = JSON.parse(window.atob(payloadBase64))
+            const username = decodedClaims.username
+            return username
+        } else return ""
+    }
+
     const hasUserAccess = (neededRole, loggedIn) =>
     {
         const roles = getUserRoles().split(',')
@@ -120,6 +132,7 @@ const fetchData = (endpoint, updateAction, SetErrorMessage) =>
         login,
         logout,
         getUserRoles,
+        getUserName,
         hasUserAccess,
     }
 

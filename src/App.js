@@ -17,6 +17,7 @@ import {
   Prompt
 } from "react-router-dom";
 import WashingAssistants from "./components/WashingAssistants";
+import Booking from "./components/Booking";
 
  
 
@@ -56,6 +57,10 @@ function App() {
 
     <Route exact path="/washingassistants"> 
               <WashingAssistants facade={facade} setErrorMessage={setErrorMessage} />
+    </Route>
+
+    <Route exact path="/bookings"> 
+              <Booking facade={facade} setErrorMessage={setErrorMessage} />
     </Route>
 
   </Switch>
