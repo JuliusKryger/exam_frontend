@@ -16,6 +16,7 @@ import {
   NavLink,
   Prompt
 } from "react-router-dom";
+import WashingAssistants from "./components/WashingAssistants";
 
  
 
@@ -52,6 +53,11 @@ function App() {
     {facade.hasUserAccess('admin', loggedIn) && 
               <Admin facade={facade} setErrorMessage={setErrorMessage} />}
     </Route>
+
+    <Route exact path="/washingassistants"> 
+              <WashingAssistants facade={facade} setErrorMessage={setErrorMessage} />
+    </Route>
+
   </Switch>
     </div>
   );

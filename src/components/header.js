@@ -17,6 +17,7 @@ export default function Header() {
         <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
         <li><NavLink activeClassName="active" to="/user">User</NavLink></li>
         <li><NavLink activeClassName="active" to="/admin">Admin</NavLink></li>
+        <li><NavLink activeClassName="active" to="/washingassistants">Washing Assistants</NavLink></li>
       </ul>
     </div>
     );

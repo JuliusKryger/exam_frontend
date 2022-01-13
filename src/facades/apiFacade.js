@@ -1,5 +1,6 @@
-const URL = "https://www.test.juliusmadsen.dk/devops-starter";
- 
+//const URL = "https://www.test.juliusmadsen.dk/devops-starter";
+const URL = "http://localhost:8080/test";
+
 function handleHttpErrors(res)
 {
     if (!res.ok)
