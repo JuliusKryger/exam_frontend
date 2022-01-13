@@ -18,6 +18,8 @@ import {
 } from "react-router-dom";
 import WashingAssistants from "./components/WashingAssistants";
 import Booking from "./components/Booking";
+import CreateWA from "./components/CreateWA";
+import NewBooking from "./components/NewBooking";
 
  
 
@@ -61,6 +63,14 @@ function App() {
 
     <Route exact path="/bookings"> 
               <Booking facade={facade} setErrorMessage={setErrorMessage} />
+    </Route>
+
+    <Route exact path="/createwa"> 
+              <CreateWA facade={facade} setErrorMessage={setErrorMessage} />
+    </Route>
+
+    <Route exact path="/booking"> 
+              <NewBooking facade={facade} setErrorMessage={setErrorMessage} />
     </Route>
 
   </Switch>

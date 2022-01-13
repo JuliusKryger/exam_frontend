@@ -19,6 +19,8 @@ export default function Header() {
         <li><NavLink activeClassName="active" to="/admin">Admin</NavLink></li>
         <li><NavLink activeClassName="active" to="/washingassistants">Washing Assistants</NavLink></li>
         <li><NavLink activeClassName="active" to="/bookings">View Bookings</NavLink></li>
+        <li><NavLink activeClassName="active" to="/createwa">CreateWA</NavLink></li>
+        <li><NavLink activeClassName="active" to="/booking">New Booking</NavLink></li>
       </ul>
     </div>
     );

@@ -1,7 +1,21 @@
 import { useState } from "react";
 
-function WashingAssistants({facade, setErrorMessage}) {
+function NewBooking({facade, setErrorMessage}) {
     const [washingAssistants, setWashingAssistants] = useState([])
+
+    const init = { BookingAppointment: "", BookingDuration: "", WashersId: "", UserName: facade.getUserName() }; 
+    const [booking, setBooking] = useState(init);
+
+    const performBooking = (evt) =>
+    {
+        evt.preventDefault();
+        facade.Booking(booking.BookingAppointment, booking.BookingDuration, booking.WashersId, booking.UserName, setErrorMessage)
+        console.log(booking)
+    }
+    const onChange = (evt) =>
+    {
+        setBooking({ ...booking, [evt.target.id]: evt.target.value })
+    }
 
     const handleClick = (evt) => {
         evt.preventDefault();
@@ -15,8 +29,16 @@ function WashingAssistants({facade, setErrorMessage}) {
 /*String name, String primaryLanguage, int yearsOfExperience, int pricePerHour*/
     return(
         <div>
-            <h1>Here you can get a view of all availble Washing Assistants</h1>
-
+            <h1>Create Your new Booking, to assign a washing assistant enter their company number. Click below to get a list of all washing assistants.</h1>
+                  <div>
+             <form onChange={onChange}>
+                  <h2>Enter the infomation for booking!</h2>
+                    <input style={{textAlign:"center"}} placeholder="Date ex 01-01-2022 12:20" id="BookingAppointment" />
+                    <input style={{textAlign:"center"}} placeholder="duration of the wash" id="BookingDuration" />
+                    <input style={{textAlign:"center"}} placeholder="ID of wanted washer" id="WashersId" />
+                    <button onClick={performBooking}>Book your wash now!</button>
+                </form>
+            </div>
             <div>
                 <table class="styled-table">
                     <thead>
@@ -43,9 +65,12 @@ function WashingAssistants({facade, setErrorMessage}) {
 
             <button onClick={handleClick}>View all Washing Assistants!</button>
 
+
+
+
         </div>
     );
     
 }
 
-export default WashingAssistants;
+export default NewBooking;

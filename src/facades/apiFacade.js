@@ -53,6 +53,40 @@ const fetchData = (endpoint, updateAction, SetErrorMessage) =>
         })
 }
 
+const CreateWashingAssistant = (name, language, year, price, SetErrorMessage) =>
+{
+    const options = makeOptions("POST", true, { washingassistantName: name, washingassistantPrimaryLanguage: language, washingassistantYearsOfExperience: year, washingassistantPricePerHour: price }); //True add's the token
+    return fetch(URL + "/api/carwash/washingassistants/create", options)
+        .then(handleHttpErrors)
+        //.then((data) => updateAction(data))
+        .catch(err =>
+        {
+            if (err.status)
+            {
+                console.log(err)
+                err.fullError.then(e => SetErrorMessage(e.code + ": " + e.message))
+            }
+            else { SetErrorMessage("Network error"); }
+        })
+}
+
+const Booking = (appointment, duration, washersid, username, SetErrorMessage) =>
+{
+    const options = makeOptions("POST", true, { BookingAppointment: appointment, BookingDuration: duration, WashersId: washersid, UserName: username }); //True add's the token
+    return fetch(URL + "/api/carwash/bookings/create", options)
+        .then(handleHttpErrors)
+        //.then((data) => updateAction(data))
+        .catch(err =>
+        {
+            if (err.status)
+            {
+                console.log(err)
+                err.fullError.then(e => SetErrorMessage(e.code + ": " + e.message))
+            }
+            else { SetErrorMessage("Network error"); }
+        })
+}
+
     // Security funktionalitet
 
     const setToken = (token) =>
@@ -130,6 +164,8 @@ const fetchData = (endpoint, updateAction, SetErrorMessage) =>
         getToken,
         loggedIn,
         login,
+        Booking,
+        CreateWashingAssistant,
         logout,
         getUserRoles,
         getUserName,
