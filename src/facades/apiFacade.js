@@ -36,6 +36,23 @@ const login = (user, password, setLoggedIn, setErrorMessage) =>
         });
 }
 
+const signup = (user, password, SetErrorMessage) =>
+{
+    const options = makeOptions("POST", true, { username: user, password: password }); //True add's the token
+    return fetch(URL + "/api/signup", options)
+        .then(handleHttpErrors)
+        //.then((data) => updateAction(data))
+        .catch(err =>
+        {
+            if (err.status)
+            {
+                console.log(err)
+                err.fullError.then(e => SetErrorMessage(e.code + ": " + e.message))
+            }
+            else { SetErrorMessage("Network error"); }
+        })
+}
+
 const fetchData = (endpoint, updateAction, SetErrorMessage) =>
 {
     const options = makeOptions("GET", true); //True add's the token
@@ -164,6 +181,7 @@ const Booking = (appointment, duration, washersid, username, SetErrorMessage) =>
         getToken,
         loggedIn,
         login,
+        signup,
         Booking,
         CreateWashingAssistant,
         logout,

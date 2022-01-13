@@ -20,6 +20,7 @@ import WashingAssistants from "./components/WashingAssistants";
 import Booking from "./components/Booking";
 import CreateWA from "./components/CreateWA";
 import NewBooking from "./components/NewBooking";
+import Signup from "./components/Signup";
 
  
 
@@ -71,6 +72,10 @@ function App() {
 
     <Route exact path="/booking"> 
               <NewBooking facade={facade} setErrorMessage={setErrorMessage} />
+    </Route>
+
+    <Route exact path="/signup"> 
+              <Signup facade={facade} setErrorMessage={setErrorMessage} />
     </Route>
 
   </Switch>
