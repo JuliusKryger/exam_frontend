@@ -12,11 +12,10 @@ function WashingAssistants({facade, setErrorMessage}) {
         console.log(data)
         setWashingAssistants(data.all);
     }
-/*String name, String primaryLanguage, int yearsOfExperience, int pricePerHour*/
+
     return(
         <div>
             <h1>Here you can get a view of all availble Washing Assistants</h1>
-
             <div>
                 <table class="styled-table">
                     <thead>
@@ -40,12 +39,9 @@ function WashingAssistants({facade, setErrorMessage}) {
                 </tbody>
                 </table>
             </div>
-
             <button onClick={handleClick}>View all Washing Assistants!</button>
-
         </div>
     );
-    
 }
 
 export default WashingAssistants;

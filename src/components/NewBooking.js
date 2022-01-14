@@ -26,7 +26,7 @@ function NewBooking({facade, setErrorMessage}) {
         console.log(data)
         setWashingAssistants(data.all);
     }
-/*String name, String primaryLanguage, int yearsOfExperience, int pricePerHour*/
+
     return(
         <div>
             <h1>Create Your new Booking, to assign a washing assistant enter their company number. Click below to get a list of all washing assistants.</h1>
@@ -62,15 +62,9 @@ function NewBooking({facade, setErrorMessage}) {
                 </tbody>
                 </table>
             </div>
-
             <button onClick={handleClick}>View all Washing Assistants!</button>
-
-
-
-
         </div>
-    );
-    
+    ); 
 }
 
 export default NewBooking;

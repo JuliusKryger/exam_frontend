@@ -16,17 +16,16 @@ function Booking({facade, setErrorMessage}) {
         console.log(booking)
     }
 
-
     return(
         <div>
             <h1>Here you can get a view of your current bookings</h1>
-
             <div>
                 <table class="styled-table">
                     <thead>
                         <tr>
                         <th scope="col">Booking date and time</th>
                         <th scope="col">Duration</th>
+                        <th scope="col">Washer</th>
                         </tr>
                     </thead>
                 <tbody>
@@ -37,12 +36,9 @@ function Booking({facade, setErrorMessage}) {
                 </tbody>
                 </table>
             </div>
-
             <button onClick={fetchBookings}>View all Your Bookings!</button>
-
         </div>
-    );
-    
+    );   
 }
 
 export default Booking;

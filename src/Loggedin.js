@@ -18,7 +18,6 @@ export default function LoggedIn({facade})
             }
             else {console.log("Network error");}
         });
-    
     }, [facade])
    
     return (

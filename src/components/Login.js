@@ -25,5 +25,4 @@ export default function LogIn({ facade, setLoggedIn, setErrorMessage })
             </form>
         </div>
     )
-
 }
